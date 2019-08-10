@@ -1,4 +1,4 @@
-package com.hcl.demand.supply.app;
+package com.hcl.demand.supply;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
