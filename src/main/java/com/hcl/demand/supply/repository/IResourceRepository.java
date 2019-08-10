@@ -14,7 +14,8 @@ public interface IResourceRepository extends JpaRepository<Resource, Long> {
 	List<Resource> findAllByStatus(String avialable);
 
 	@Query("Select r from Resource r where r.primarySkill IN (:skills)")
-	List<Resource> findBySkills(@Param("skills")List<String> skills);
+	List<Resource> findBySkills(String primarySkill, String secondarySkill, String loctation, int experience,
+			String otherSkill, String levelEnum);
 	
 
 }

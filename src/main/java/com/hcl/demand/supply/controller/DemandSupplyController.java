@@ -26,12 +26,9 @@ public class DemandSupplyController {
 	com.hcl.demand.supply.service.IDemandService IDemandService;
 	
 	@PostMapping("/demandsupply/{SkillSet}")
-	public List<ResourceDto> demandByPM(@NotEmpty @PathVariable List<SkillSet> set){
-		
-		IDemandService.getRelevantResources(set.get(0)));
-		
-		
-		
+	public List<ResourceDto> demandByPM(@NotEmpty @PathVariable SkillSet skillset){
+		List<ResourceDto> listofresources = IDemandService.getRelevantResources(skillset);
+		return listofresources;
 	}
 	
 
