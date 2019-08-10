@@ -1,7 +1,6 @@
 package com.hcl.demand.supply.controller;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
@@ -14,9 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hcl.demand.supply.dto.ResourceDto;
 import com.hcl.demand.supply.dto.SkillSet;
-import com.hcl.demand.supply.entity.Resource;
-import com.hcl.demand.supply.entity.Training;
-import com.hcl.demand.supply.service.DemandServiceImpl;
 
 @RestController
 @RequestMapping("/demandsupply")

@@ -9,8 +9,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
+
 @Entity
 @Table(name = "resource")
 public class Resource {
@@ -20,7 +19,7 @@ public class Resource {
 	private Long empId;
 	private String name;
 	private String mailId;
-	private String loctation;
+	private String location;
 	private String primarySkill;
 	private String secondarySkill;
 	private String otherSkill;
@@ -29,10 +28,156 @@ public class Resource {
 	private String status;
 	private String phoneNumber;
 	private String levelEnum;
+	
+	
+
+	public Long getEmpId() {
+		return empId;
+	}
+
+
+
+	public void setEmpId(Long empId) {
+		this.empId = empId;
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	public String getMailId() {
+		return mailId;
+	}
+
+
+
+	public void setMailId(String mailId) {
+		this.mailId = mailId;
+	}
+
+
+
+	public String getLocation() {
+		return location;
+	}
+
+
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+
+
+	public String getPrimarySkill() {
+		return primarySkill;
+	}
+
+
+
+	public void setPrimarySkill(String primarySkill) {
+		this.primarySkill = primarySkill;
+	}
+
+
+
+	public String getSecondarySkill() {
+		return secondarySkill;
+	}
+
+
+
+	public void setSecondarySkill(String secondarySkill) {
+		this.secondarySkill = secondarySkill;
+	}
+
+
+
+	public String getOtherSkill() {
+		return otherSkill;
+	}
+
+
+
+	public void setOtherSkill(String otherSkill) {
+		this.otherSkill = otherSkill;
+	}
+
+
+
+	public int getAge() {
+		return age;
+	}
+
+
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+
+
+	public int getExperience() {
+		return experience;
+	}
+
+
+
+	public void setExperience(int experience) {
+		this.experience = experience;
+	}
+
+
+
+	public String getStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+
+
+	public String getLevelEnum() {
+		return levelEnum;
+	}
+
+
+
+	public void setLevelEnum(String levelEnum) {
+		this.levelEnum = levelEnum;
+	}
+
+
 
 	@Override
 	public String toString() {
-		return "Resource [empId=" + empId + ", name=" + name + ", mailId=" + mailId + ", loctation=" + loctation
+		return "Resource [empId=" + empId + ", name=" + name + ", mailId=" + mailId + ", loctation=" + location
 				+ ", primarySkill=" + primarySkill + ", secondarySkill=" + secondarySkill + ", otherSkill=" + otherSkill
 				+ ", age=" + age + ", experience=" + experience + ", status=" + status + ", phoneNumber=" + phoneNumber
 				+ ", levelEnum=" + levelEnum + "]";

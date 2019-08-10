@@ -4,26 +4,42 @@ import java.util.List;
 
 public class SkillSet {
 
-	  private List<String> primaryskill;
-	  private List<String> secondaryskill;
-	  private List<String> Location;
+	  private String primaryskill;
+	  private String secondaryskill;
+	  private String otherskill;
+	  private String Location;
 	  private int Experience;
-	public List<String> getPrimaryskill() {
+	  private String levelEnum;
+	  
+	
+	public String getLevelEnum() {
+		return levelEnum;
+	}
+	public void setLevelEnum(String levelEnum) {
+		this.levelEnum = levelEnum;
+	}
+	public String getOtherskill() {
+		return otherskill;
+	}
+	public void setOtherskill(String otherskill) {
+		this.otherskill = otherskill;
+	}
+	public String getPrimaryskill() {
 		return primaryskill;
 	}
-	public void setPrimaryskill(List<String> primaryskill) {
+	public void setPrimaryskill(String primaryskill) {
 		this.primaryskill = primaryskill;
 	}
-	public List<String> getSecondaryskill() {
+	public String getSecondaryskill() {
 		return secondaryskill;
 	}
-	public void setSecondaryskill(List<String> secondaryskill) {
+	public void setSecondaryskill(String secondaryskill) {
 		this.secondaryskill = secondaryskill;
 	}
-	public List<String> getLocation() {
+	public String getLocation() {
 		return Location;
 	}
-	public void setLocation(List<String> location) {
+	public void setLocation(String location) {
 		Location = location;
 	}
 	public int getExperience() {
@@ -32,10 +48,7 @@ public class SkillSet {
 	public void setExperience(int experience) {
 		Experience = experience;
 	}
-	@Override
-	public String toString() {
-		return "SkillSet [primaryskill=" + primaryskill + ", secondaryskill=" + secondaryskill + ", Location="
-				+ Location + ", Experience=" + Experience + "]";
-	}
+	  
+	  
 	  
 }

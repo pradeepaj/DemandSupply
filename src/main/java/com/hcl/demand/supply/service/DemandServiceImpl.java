@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.hcl.demand.supply.dto.ResourceDto;
 import com.hcl.demand.supply.dto.SkillSet;
@@ -11,6 +12,7 @@ import com.hcl.demand.supply.entity.Resource;
 import com.hcl.demand.supply.repository.IResourceRepository;
 import com.hcl.demand.supply.util.LevelConstant;
 
+@Service
 public class DemandServiceImpl implements IDemandService {
 
 	@Autowired
@@ -22,28 +24,69 @@ public class DemandServiceImpl implements IDemandService {
 		List<ResourceDto> resourceDtos = null;
 		List<Resource> resources = resourceRepository.findAllByStatus(LevelConstant.AVIALABLE);
 		for (Resource resource : resources) {
-			ResourceDto dto=new ResourceDto();
-			dto.setEmpId(resource.getEmpId());			
+			ResourceDto dto = new ResourceDto();
+			dto.setEmpId(resource.getEmpId());
 		}
 		return resourceDtos;
 	}
 
 	@Override
 	public List<ResourceDto> getRelevantResources(SkillSet skill) {
-		try {
+
+		List<ResourceDto> dtos = new ArrayList<>();
+
 		Resource rsc = new Resource();
-		rsc.setPrimarySkill(skill.getPrimaryskill().get(0));
-		rsc.setSecondarySkill(skill.getSecondaryskill().get(0));
-		List<Resource> listOfResources = resourceRepository.findBySkills(rsc.getPrimarySkill()
-				,rsc.getSecondarySkill(),rsc.getLoctation(),rsc.getExperience(),rsc.getOtherSkill(),rsc.getLevelEnum());
-		if(listOfResources.isEmpty()) {
-			
+		List<Resource> listResources = resourceRepository.findExactSkills(skill.getPrimaryskill(),
+				skill.getSecondaryskill(), skill.getLocation(), skill.getExperience(), skill.getOtherskill(),
+				skill.getLevelEnum());
+
+		
+		for (Resource resource : listResources) {
+			ResourceDto dto = new ResourceDto();
+			dto.setPercentagematch(100);
+			dto.setEmpId(resource.getEmpId());
+			dto.setMailId(resource.getMailId());
+			dto.setName(resource.getName());
+			dto.setExperience(resource.getExperience());
+			dto.setLevel(resource.getLevelEnum());
+			dto.setLoctation(resource.getLocation());
+			dto.setPrimarySkill(resource.getPrimarySkill());
+			dto.setSecondarySkill(resource.getSecondarySkill());
+			dto.setPhoneNumber(resource.getPhoneNumber());
+			dto.setOtherSkill(resource.getOtherSkill());
+			dto.setExperience(resource.getExperience());
+			dto.setStatus(resource.getStatus());
+			dtos.add(dto);
+			return dtos;
 		}
+
+		
+		if (listResources == null) {
+			listResources = resourceRepository.findRecommendedSkills(skill.getPrimaryskill(), skill.getSecondaryskill(),
+					skill.getLocation(), skill.getExperience(), skill.getOtherskill(), skill.getLevelEnum());
+
+			for (Resource resource : listResources) {
+				ResourceDto dto = new ResourceDto();
+				dto.setEmpId(resource.getEmpId());
+				dto.setMailId(resource.getMailId());
+				dto.setName(resource.getName());
+				dto.setExperience(resource.getExperience());
+				dto.setLevel(resource.getLevelEnum());
+				dto.setLoctation(resource.getLocation());
+				dto.setPrimarySkill(resource.getPrimarySkill());
+				dto.setSecondarySkill(resource.getSecondarySkill());
+				dto.setPhoneNumber(resource.getPhoneNumber());
+				dto.setPhoneNumber(resource.getPhoneNumber());
+				dto.setOtherSkill(resource.getOtherSkill());
+				dto.setExperience(resource.getExperience());
+				dto.setStatus(resource.getStatus());
+				dtos.add(dto);
+			}
+
+			return dtos;
 		}
+
 		return null;
 	}
-	
-	
-	
 
 }

@@ -10,6 +10,6 @@ public interface IDemandService {
 	
 	List<ResourceDto> fetchResource();
 
-	List<Resource> getRelevantResources(SkillSet skill);
+	List<ResourceDto> getRelevantResources(SkillSet skill);
 	
 }
