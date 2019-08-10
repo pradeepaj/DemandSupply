@@ -22,8 +22,8 @@ public class DemandSupplyController {
 	@GetMapping("/showResources")
 
 	public List<ResourceDto> showResoure() {
-		iDemandService.fetchResource();
-		return null;
+		List<ResourceDto> resourceDtos = iDemandService.fetchResource();
+		return resourceDtos;
 
 	}
 
